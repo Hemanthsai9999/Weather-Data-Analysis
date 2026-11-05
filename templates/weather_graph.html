@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Analysis Dashboard</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #eef4fa;
+            color: #243447;
+        }
+
+        header {
+            background: #123b64;
+            color: white;
+            text-align: center;
+            padding: 28px 15px;
+        }
+
+        header h1 {
+            margin: 0 0 10px;
+            font-size: 30px;
+        }
+
+        header p {
+            margin: 0;
+            color: #d9eaff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 25px;
+        }
+
+        .intro {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .intro h2 {
+            color: #123b64;
+        }
+
+        .intro p {
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        .graph-card {
+            background: white;
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 14px #123b6415;
+        }
+
+        .graph-card h3 {
+            text-align: center;
+            color: #1769aa;
+            margin-top: 0;
+        }
+
+        .graph-card img {
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .back-button {
+            display: block;
+            width: fit-content;
+            margin: 25px auto;
+            padding: 12px 22px;
+            background: #1769aa;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+
+        .back-button:hover {
+            background: #0d4e85;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #123b64;
+            color: white;
+            font-size: 14px;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 23px;
+            }
+
+            .container {
+                padding: 12px;
+                margin: 15px auto;
+            }
+
+            .graph-card {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>🌦️ Weather Analysis Dashboard</h1>
+        <p>Weather Data Analysis System using Python, Flask and MySQL</p>
+    </header>
+
+    <main class="container">
+
+        <section class="intro">
+            <h2>Weather Data Visualization</h2>
+            <p>
+                Analyze and compare temperature, humidity, rainfall,
+                wind speed and weather conditions across different cities.
+            </p>
+        </section>
+
+        <section class="graph-card">
+            <h3>🌡️ Average Temperature by City</h3>
+            <img
+                src="data:image/png;base64,{{ graph_image }}"
+                alt="Average temperature, humidity, rainfall, wind speed and weather conditions graphs"
+            >
+        </section>
+
+        <a href="/" class="back-button">← Back to Home</a>
+
+    </main>
+
+    <footer>
+        <p>Weather Data Analysis System | Flask + MySQL + Matplotlib</p>
+    </footer>
+
+</body>
+</html>

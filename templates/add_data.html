@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Weather Data</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+            margin: 0;
+            padding: 30px;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2457a7;
+        }
+
+        label {
+            display: block;
+            margin-top: 12px;
+            font-weight: bold;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 20px;
+            padding: 12px;
+            background: #2457a7;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: #173d7a;
+        }
+
+        .message {
+            text-align: center;
+            color: green;
+            font-weight: bold;
+        }
+
+        .back {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            color: #2457a7;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Add Weather Data</h1>
+
+        {% if message %}
+            <p class="message">{{ message }}</p>
+        {% endif %}
+
+        <form action="/add" method="POST">
+
+            <label>City</label>
+            <input type="text" name="city" required>
+
+            <label>Temperature (°C)</label>
+            <input type="number" name="temperature"
+                   step="any" required>
+
+            <label>Humidity (%)</label>
+            <input type="number" name="humidity"
+                   min="0" max="100" required>
+
+            <label>Rainfall (mm)</label>
+            <input type="number" name="rainfall"
+                   step="any" min="0" value="0" required>
+
+            <label>Wind Speed (km/h)</label>
+            <input type="number" name="wind_speed"
+                   step="any" min="0" value="0" required>
+
+            <label>Weather Condition</label>
+            <select name="weather_condition" required>
+                <option value="Sunny">Sunny</option>
+                <option value="Cloudy">Cloudy</option>
+                <option value="Rainy">Rainy</option>
+                <option value="Windy">Windy</option>
+                <option value="Stormy">Stormy</option>
+                <option value="Foggy">Foggy</option>
+            </select>
+
+            <label>Date</label>
+            <input type="date" name="weather_date" required>
+
+            <button type="submit">Add Weather Data</button>
+        </form>
+
+        <a class="back" href="/">Back to Home</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Average Temperature Analysis</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+            padding: 30px;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: auto;
+            padding: 25px;
+            background: white;
+            border-radius: 12px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2457a7;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 25px;
+        }
+
+        th, td {
+            padding: 14px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        th {
+            background: #2457a7;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background: #eef4ff;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Average Temperature Analysis</h1>
+
+        <table>
+            <tr>
+                <th>City</th>
+                <th>Average Temperature (°C)</th>
+            </tr>
+
+            {% for row in records %}
+            <tr>
+                <td>{{ row.city }}</td>
+                <td>{{ row.average_temperature }}</td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="2">No weather data available.</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <a href="/">Back to Home</a>
+    </div>
+</body>
+</html>

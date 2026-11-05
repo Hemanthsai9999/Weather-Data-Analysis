@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Data</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+            padding: 25px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #173d7a;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        th {
+            background: #2457a7;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background: #eef4ff;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #2457a7;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Weather Data Analysis System</h1>
+
+    <div class="container">
+        <h2>All Weather Records</h2>
+
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>City</th>
+                <th>Temperature (°C)</th>
+                <th>Humidity (%)</th>
+                <th>Rainfall (mm)</th>
+                <th>Wind Speed</th>
+                <th>Condition</th>
+                <th>Date</th>
+            </tr>
+
+            {% for row in records %}
+            <tr>
+                <td>{{ row.id }}</td>
+                <td>{{ row.city }}</td>
+                <td>{{ row.temperature }}</td>
+                <td>{{ row.humidity }}</td>
+                <td>{{ row.rainfall }}</td>
+                <td>{{ row.wind_speed }}</td>
+                <td>{{ row.weather_condition }}</td>
+                <td>{{ row.weather_date }}</td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="8">No weather data found.</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <a href="/">Back to Home</a>
+    </div>
+</body>
+</html>

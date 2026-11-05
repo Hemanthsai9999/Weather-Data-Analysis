@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Weather Data Analysis System</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #eef4fa;
+            color: #243447;
+        }
+
+        header {
+            background: #123b64;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        header h1 {
+            margin: 0 0 12px;
+            font-size: 34px;
+        }
+
+        header p {
+            margin: 0;
+            color: #d9eaff;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 35px auto;
+            padding: 20px;
+        }
+
+        .welcome {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .welcome h2 {
+            color: #123b64;
+            font-size: 28px;
+        }
+
+        .welcome p {
+            color: #64748b;
+            line-height: 1.7;
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            color: #123b64;
+            margin-bottom: 22px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px 18px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 14px #123b6415;
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+        }
+
+        .card .icon {
+            font-size: 38px;
+            margin-bottom: 12px;
+        }
+
+        .card h3 {
+            color: #1769aa;
+            margin: 5px 0 12px;
+        }
+
+        .card p {
+            color: #64748b;
+            font-size: 14px;
+            line-height: 1.6;
+            min-height: 45px;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 11px 18px;
+            background: #1769aa;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 14px;
+            transition: background 0.2s;
+        }
+
+        .button:hover {
+            background: #0d4e85;
+        }
+
+        .delete-button {
+            background: #c62828;
+        }
+
+        .delete-button:hover {
+            background: #a61d1d;
+        }
+
+        .about {
+            margin-top: 35px;
+            padding: 25px;
+            background: white;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 14px #123b6415;
+        }
+
+        .about h2 {
+            color: #123b64;
+        }
+
+        .about p {
+            color: #64748b;
+            line-height: 1.8;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding: 22px;
+            background: #123b64;
+            color: white;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        @media (max-width: 800px) {
+            .features {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            header h1 {
+                font-size: 28px;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 12px;
+                margin: 20px auto;
+            }
+
+            header h1 {
+                font-size: 24px;
+            }
+
+            .welcome h2 {
+                font-size: 23px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>🌦️ Weather Data Analysis System</h1>
+        <p>Weather monitoring, database management and data visualization</p>
+    </header>
+
+    <main class="container">
+
+        <!-- Welcome Section -->
+        <section class="welcome">
+            <h2>Welcome to Weather Data Analysis System</h2>
+            <p>
+                This application helps you manage weather records for different
+                cities. You can add new records, update existing information,
+                search by city, delete records, calculate average temperatures,
+                and visualize weather information using graphs.
+            </p>
+        </section>
+
+        <!-- Main Features -->
+        <h2 class="section-title">Project Features</h2>
+
+        <section class="features">
+
+            <!-- View Weather Data -->
+            <div class="card">
+                <div class="icon">🌤️</div>
+                <h3>View Weather Data</h3>
+                <p>
+                    View all weather records stored in the MySQL database.
+                </p>
+                <a href="/weather" class="button">View Records</a>
+            </div>
+
+            <!-- Add Weather Data -->
+            <div class="card">
+                <div class="icon">➕</div>
+                <h3>Add Weather Data</h3>
+                <p>
+                    Add new city weather details using an HTML form.
+                </p>
+                <a href="/add_data" class="button">Add Data</a>
+            </div>
+
+            <!-- Update Weather Data -->
+            <div class="card">
+                <div class="icon">✏️</div>
+                <h3>Update Weather Data</h3>
+                <p>
+                    Modify the weather information of an existing record.
+                </p>
+                <a href="/update_data" class="button">Update Data</a>
+            </div>
+
+            <!-- Delete Weather Data -->
+            <div class="card">
+                <div class="icon">🗑️</div>
+                <h3>Delete Weather Data</h3>
+                <p>
+                    View records and delete a selected record by its ID.
+                </p>
+                <a href="/delete_data" class="button delete-button">
+                    Delete Data
+                </a>
+            </div>
+
+            <!-- Search by City -->
+            <div class="card">
+                <div class="icon">🔍</div>
+                <h3>Search by City</h3>
+                <p>
+                    Find weather records by entering a city name.
+                </p>
+
+                <form action="/weather/city/" method="GET"
+                      onsubmit="event.preventDefault();
+                      window.location.href='/weather/city/' +
+                      encodeURIComponent(this.city.value.trim());">
+
+                    <label>
+                        <input
+                            type="text"
+                            name="city"
+                            placeholder="Enter city name"
+                            required
+                            style="width:100%; padding:10px; border:1px solid #ccc;
+                            border-radius:5px; margin-top:8px;"
+                        >
+                    </label>
+
+                    <button type="submit" class="button">
+                        Search City
+                    </button>
+                </form>
+            </div>
+
+            <!-- Average Temperature -->
+            <div class="card">
+                <div class="icon">🌡️</div>
+                <h3>Average Temperature</h3>
+                <p>
+                    Compare average temperatures recorded in different cities.
+                </p>
+                <a href="/weather/analysis/average" class="button">
+                    View Analysis
+                </a>
+            </div>
+
+            <!-- Graph Dashboard -->
+            <div class="card">
+                <div class="icon">📊</div>
+                <h3>Weather Graphs</h3>
+                <p>
+                    Analyze temperature, humidity, rainfall, wind speed
+                    and weather conditions using five graphs.
+                </p>
+                <a href="/weather/analysis/graph" class="button">
+                    View Graphs
+                </a>
+            </div>
+
+        </section>
+
+        <!-- About Project -->
+        <section class="about">
+            <h2>About This Project</h2>
+            <p>
+                The Weather Data Analysis System is developed using
+                Python and Flask for backend operations, MySQL for storing
+                weather information, HTML and CSS for the user interface,
+                and Matplotlib for data visualization.
+            </p>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>Weather Data Analysis System | Python | Flask | MySQL | Matplotlib</p>
+    </footer>
+
+</body>
+</html>
